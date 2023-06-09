@@ -5,6 +5,23 @@ spring:
     name: ORDER-SERVICE
   config:
     import: configserver:http://localhost:9296
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-88341131.okta.com/oauth2/default
+      client:
+        registration:
+          internal-client:
+            provider: okta
+            authorization-grant-type: client_credentials
+            scope: internal
+            client-id: 0oa9r3q2uvzlBO6Yw5d7
+            client-secret: hkYG16hvGUg9WO1T5gmbh-j1fsN9P4ginkGS27XY
+        provider:
+          okta:
+            issuer-uri: https://dev-88341131.okta.com/oauth2/default
+          
   datasource:
     url: jdbc:mysql://localhost:3306/orderdb
     username: root

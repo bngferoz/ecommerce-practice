@@ -17,6 +17,10 @@ spring:
           args:
             name: ORDER-SERVICE
             fallbackuri: forward:/orderServiceFallback
+        - name: RequestRateLimiter
+          args: 
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter.burstCapacity: 1
       - id: PAYMENT-SERVICE
         uri: lb://PAYMENT-SERVICE
         predicates:
@@ -26,6 +30,10 @@ spring:
           args:
             name: PAYMENT-SERVICE
             fallbackuri: forward:/paymentServiceFallback
+        - name: RequestRateLimiter
+          args: 
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter.burstCapacity: 1
       - id: PRODUCT-SERVICE
         uri: lb://PRODUCT-SERVICE
         predicates:
@@ -35,3 +43,14 @@ spring:
           args:
             name: PRODUCT-SERVICE
             fallbackuri: forward:/productServiceFallback
+        - name: RequestRateLimiter
+          args: 
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter.burstCapacity: 1
+okta:
+  oauth2:
+    issuer: https://dev-88341131.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oa9r3q2uvzlBO6Yw5d7
+    client-secret: hkYG16hvGUg9WO1T5gmbh-j1fsN9P4ginkGS27XY
+    scopes: openid, profile, email, offline_access
