@@ -18,7 +18,7 @@ public class WebSecurityConfig {
 				.hasAuthority("SCOPE_internal")
 				.anyRequest().authenticated())
 		.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-		return null;
+		return http.build();
 	
 	}
 }

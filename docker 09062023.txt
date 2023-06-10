@@ -47,3 +47,12 @@ sudo systemctl status ssh
 --unlock users from settings
 --localhost(172.17.0.1)
 sudo docker build -t bngferoz/vip-cloud-gateway:0.0.1 .
+
+sudo docker run -d -p9090:9090 --name cloudgateway imageId
+docker login
+sudo docker push bngferoz/vip-service-registry:0.0.1
+
+sudo docker stop cid cid cid
+sudo docker system prune -a
+
+sudo touch docker-compose.yml
