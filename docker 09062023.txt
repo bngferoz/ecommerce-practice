@@ -46,3 +46,4 @@ sudo systemctl status ssh
 --sudo ufw allow from any to any port 5900 proto tcp
 --unlock users from settings
 --localhost(172.17.0.1)
+sudo docker build -t bngferoz/vip-cloud-gateway:0.0.1 .
